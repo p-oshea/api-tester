@@ -4,8 +4,9 @@ import (
 	"log"
 	"os"
 	"strings"
-
+	
 	"github.com/moficodes/bookdata/api/loader"
+
 )
 
 type Books struct {
@@ -13,7 +14,7 @@ type Books struct {
 }
 
 func (b *Books) Initialize() {
-	filename := "./assets/books.csv"
+	filename := "assets/books.csv"
 	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatalln(err)
