@@ -2,33 +2,40 @@
 FROM golang:latest as builder
 
 LABEL maintainer="Patrick O'Shea <poshea@optum.com"
-#ENV GOPATH=/go/
 
-WORKDIR /
-ADD * ./
+WORKDIR /app
+COPY . /app
+RUN go get -v ./...
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o bookdata-api
 
-#COPY go.mod go.sum ./
-#COPY assets/ .
-#COPY datastore/ .
-#COPY loader/ .
-#COPY routes.go .
-#COPY server.go .
-
-#RUN go mod download
-COPY . .
-RUN go build .
-
-
-
+# second stage
 
 FROM alpine:latest  
 
-RUN apk --no-cache add ca-certificates \ 
-    && apk add --no-cache libgcc openssl pcre perl unzip tzdata luarocks git jq wget tar 
+RUN apk --no-cache add ca-certificates \
+    && apk add --no-cache \
+    openssl \
+    pcre \
+    perl \
+    unzip \
+    tzdata \
+    git \
+    jq \
+    wget \
+    tar \
+    curl \
+    tcpdump 
 
-COPY --from=builder /api .
-COPY --from=builder /assets/ .
+WORKDIR /root/
+
+COPY --from=builder /app/ .
 
 EXPOSE 8080
 
-CMD ["./api"] 
+RUN "chmod" "+x" "./bookdata-api"
+RUN "chmod" "+w" "./assets/books.csv"
+
+RUN chmod -R 755 /app/
+
+
+CMD ["./bookdata-api"] 

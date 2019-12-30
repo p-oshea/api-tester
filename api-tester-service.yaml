@@ -1,0 +1,13 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: api-tester
+  labels:
+    service: api-tester
+spec:
+  ports:
+  - name: http
+    port: 8080
+  selector:
+    service: api-tester

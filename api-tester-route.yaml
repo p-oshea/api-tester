@@ -1,0 +1,12 @@
+---
+kind: Route
+apiVersion: v1
+metadata:
+  name: api-tester
+spec:
+  to:
+    kind: Service
+    name: api-tester
+  tls:
+    insecureEdgeTerminationPolicy: Allow
+    termination: edge

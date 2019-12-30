@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/gorilla/mux"
-	"github.com/moficodes/bookdata/api/loader"
+	"github.com/moficodes/bookdata-api/loader"
 	"net/http"
 	"strconv"
 )

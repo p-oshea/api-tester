@@ -1,6 +1,6 @@
 package datastore
 
-import "github.com/moficodes/bookdata/api/loader"
+import "github.com/moficodes/bookdata-api/loader"
 
 type BookStore interface {
 	Initialize()

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: "Patrick's Testin Images"  
+  name: api-tester
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      dockerImage: 'norcinmo/api-tester:latest'
+    generation: 1
+    importPolicy:
+      insecure: true
+    name: ':latest'
+    referencePolicy:
+      type: Source

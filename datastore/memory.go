@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 	
-	"github.com/moficodes/bookdata/api/loader"
+	"github.com/moficodes/bookdata-api/loader"
 
 )
 

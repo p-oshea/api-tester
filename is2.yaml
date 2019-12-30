@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: "Official poshea tester image images"
+  name: api-tester
+
+spec:
+  dockerImageRepository: norcinmo/api-tester

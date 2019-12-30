@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    iac.version: 1.0.10
+    app: api-tester
+  name: api-tester
+spec:
+  replicas: 1
+  selector:
+    app: api-tester
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        deploymentconfig: api-tester
+        app: api-tester
+    spec:
+      nodeSelector:
+        network: internet
+      containers:
+      - env:
+        name: api-tester
+        image: api-tester:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+#        securityContext:
+#          runAsUser: 0
+#          privileged: true
+        restartPolicy: Always
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - api-tester
+      from:
+        kind: "ImageStreamTag"
+        name: "api-tester:latest"
+    type: ImageChange
