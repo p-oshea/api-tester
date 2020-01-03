@@ -53,5 +53,6 @@ EXPOSE 8080
 
 RUN "chmod" "+x" "./bookdata-api"
 RUN "chmod" "+w" "./assets/books.csv"
+RUN "chmod" "+x" "./load_tester.sh"
 
 CMD ["./bookdata-api"] 
