@@ -2,15 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/moficodes/bookdata-api/datastore"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gorilla/mux"
+	"github.com/moficodes/bookdata-api/datastore"
+	newrelic "github.com/newrelic/go-agent"
 )
 
 var (
 	books datastore.BookStore
+	app   newrelic.Application
+	err   error
 )
 
 func timeTrack(start time.Time, name string) {
@@ -19,6 +23,8 @@ func timeTrack(start time.Time, name string) {
 }
 
 func init() {
+	config := newrelic.NewConfig("apitester", "eu01xx419da656e48684fccb15fef6f07880a63a")
+	app, err = newrelic.NewApplication(config)
 	defer timeTrack(time.Now(), "file load")
 	books = &datastore.Books{}
 	books.Initialize()
@@ -31,10 +37,15 @@ func main() {
 	api.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "api v1")
 	})
-	api.HandleFunc("/books/authors/{author}", searchByAuthor).Methods(http.MethodGet)
-	api.HandleFunc("/books/book-name/{bookName}", searchByBookName).Methods(http.MethodGet)
-	api.HandleFunc("/book/isbn/{isbn}", searchByISBN).Methods(http.MethodGet)
-	api.HandleFunc("/book/isbn/{isbn}", deleteByISBN).Methods(http.MethodDelete)
-	api.HandleFunc("/book", createBook).Methods(http.MethodPost)
+	//api.HandleFunc("/books/authors/{author}", searchByAuthor).Methods(http.MethodGet)
+	api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/authors/{author}", searchByAuthor))
+	//api.HandleFunc("/books/book-name/{bookName}", searchByBookName).Methods(http.MethodGet)
+	api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/book-name/{bookName}", searchByBookName))
+	//api.HandleFunc("/book/isbn/{isbn}", searchByISBN).Methods(http.MethodGet)
+	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", searchByISBN))
+	//api.HandleFunc("/book/isbn/{isbn}", deleteByISBN).Methods(http.MethodDelete)
+	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", deleteByISBN))
+	//api.HandleFunc("/book", createBook).Methods(http.MethodPost)
+	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book", createBook))
 	log.Fatalln(http.ListenAndServe(":8080", r))
 }

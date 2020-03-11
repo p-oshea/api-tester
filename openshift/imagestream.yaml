@@ -6,7 +6,7 @@ metadata:
   name: api-tester
 spec:
   lookupPolicy:
-    local: false
+    local: "false"
   tags:
   - annotations: null
     from:

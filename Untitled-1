@@ -1,0 +1,8 @@
+	app, err := newrelic.NewApplication(
+		newrelic.ConfigAppName("api-tester"),
+		newrelic.ConfigLicense("eu01xx419da656e48684fccb15fef6f07880a63a"),
+	)
+
+
+    config := newrelic.NewConfig("apitester", "eu01xx419da656e48684fccb15fef6f07880a63a")
+    app, err := newrelic.NewApplication(config)
