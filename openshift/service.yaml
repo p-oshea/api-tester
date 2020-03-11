@@ -10,4 +10,4 @@ spec:
   - name: http
     port: 8080
   selector:
-    service: api-tester
+    app: api-tester
