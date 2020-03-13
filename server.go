@@ -37,15 +37,15 @@ func main() {
 	api.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "api v1")
 	})
-	//api.HandleFunc("/books/authors/{author}", searchByAuthor).Methods(http.MethodGet)
-	api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/authors/{author}", searchByAuthor))
-	//api.HandleFunc("/books/book-name/{bookName}", searchByBookName).Methods(http.MethodGet)
-	api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/book-name/{bookName}", searchByBookName))
-	//api.HandleFunc("/book/isbn/{isbn}", searchByISBN).Methods(http.MethodGet)
-	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", searchByISBN))
-	//api.HandleFunc("/book/isbn/{isbn}", deleteByISBN).Methods(http.MethodDelete)
-	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", deleteByISBN))
-	//api.HandleFunc("/book", createBook).Methods(http.MethodPost)
-	api.HandleFunc(newrelic.WrapHandleFunc(app, "/book", createBook))
+	api.HandleFunc("/books/authors/{author}", searchByAuthor).Methods(http.MethodGet)
+	//api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/authors/{author}", searchByAuthor)) // newrelic code, defunct
+	api.HandleFunc("/books/book-name/{bookName}", searchByBookName).Methods(http.MethodGet)
+	//api.HandleFunc(newrelic.WrapHandleFunc(app, "/books/book-name/{bookName}", searchByBookName)) // newrelic code, defunct
+	api.HandleFunc("/book/isbn/{isbn}", searchByISBN).Methods(http.MethodGet)
+	//api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", searchByISBN)) // newrelic code, defunct
+	api.HandleFunc("/book/isbn/{isbn}", deleteByISBN).Methods(http.MethodDelete)
+	//api.HandleFunc(newrelic.WrapHandleFunc(app, "/book/isbn/{isbn}", deleteByISBN)) // newrelic code, defunct
+	api.HandleFunc("/book", createBook).Methods(http.MethodPost)
+	//api.HandleFunc(newrelic.WrapHandleFunc(app, "/book", createBook)) // newrelic code, defunct
 	log.Fatalln(http.ListenAndServe(":8080", r))
 }

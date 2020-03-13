@@ -22,6 +22,7 @@ FROM alpine:latest
 # install core system packages, utils and useful assets
 RUN apk --no-cache add ca-certificates \
         && apk add --no-cache \
+        bash \
         openssl \
         pcre \
         perl \
