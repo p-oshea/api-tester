@@ -13,7 +13,7 @@ done
 for i in {1..60}
 do
 DATE=`date +"%m-%d-%Y-%H.%M.%S"`
-CURL=`curl -w "@logger" -o https://test-selection-private.sandbox.ngis.io/test-selection/api/config 2> /dev/null`
+CURL=`curl -w "@logger" -o /dev/null https://test-selection-private.sandbox.ngis.io/test-selection/api/config 2> /dev/null`
 echo $DATE,$CURL >> \/tmp\/load_tester_route-$DATE.log
 echo "still running, yall"
 sleep 30
