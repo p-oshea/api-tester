@@ -16,19 +16,19 @@ URL_COMPLETE=$URL_TMP\?\[$START_NUM\-$END_NUM\]
 if [ -z "$URL_TMP" ]
 then
 	echo "incorrect syntax  "load_tester.sh URL STARTNUMBER ENDNUMBER""
-  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3 3""
+  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3""
 	echo "this will test that URL with ?1, ?2, ?3 appended to it and record results"
   exit 1
 elif [ -z "$START_NUM" ]
 then
 	echo "incorrect syntax  "load_tester.sh URL STARTNUMBER ENDNUMBER""
-  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3 3""
+  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3""
 	echo "this will test that URL with ?1, ?2, ?3 appended to it and record results"
   exit 1
 elif [ -z "$END_NUM" ]
 then
 	echo "incorrect syntax  "load_tester.sh URL STARTNUMBER ENDNUMBER""
-  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3 3""
+  echo "example "load_tester.sh https://kong-admin-sandbox.6623-7082ab.cor00005.cna.ukcloud.com/routes/4201b21a-a45d-41f7-b9fd-7c530db6d0e4 1 3""
 	echo "this will test that URL with ?1, ?2, ?3 appended to it and record results"
   exit 1
 else
