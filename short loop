@@ -1,7 +1,7 @@
 for i in {1..60}
 do
 DATE=`date +"%m-%d-%Y-%H.%M.%S"`
-CURL=`curl -w "@logger" -o /dev/null private-testdirectory-ui.sandbox.svc:8080/api/config 2> /dev/null`
+CURL=`curl -4 -w "@logger" -o /dev/null private-testdirectory-ui.sandbox.svc:8080/api/config 2> /dev/null`
 echo $DATE,$CURL >> \/tmp\/load_tester-$DATE.log
 echo "still running, yall"
 sleep 30
@@ -13,19 +13,19 @@ done
 for i in {1..60}
 do
 DATE=`date +"%m-%d-%Y-%H.%M.%S"`
-CURL=`curl -w "@logger" -o /dev/null https://test-selection-private.sandbox.ngis.io/test-selection/api/config 2> /dev/null`
-echo $DATE,$CURL >> \/tmp\/load_tester_route-$DATE.log
+CURL=`curl -w "@logger" -o /dev/null 172.30.84.203:8080/api/config 2> /dev/null`
+echo $DATE,$CURL >> \/tmp\/load_tester_svc_ip_30s_30m-$DATE.log
 echo "still running, yall"
 sleep 30
 done
 
 
 
-for i in {1..360}
+for i in {1..600}
 do
 DATE=`date +"%m-%d-%Y-%H.%M.%S"`
-CURL=`curl -w "@logger" -o /dev/null https://test-selection-private.sandbox.ngis.io/test-selection/api/config 2> /dev/null`
-echo $DATE,$CURL >> \/tmp\/load_tester_route_5s-$DATE.log
+CURL=`curl -w "@logger" -o /dev/null 172.30.84.203:8080/api/config 2> /dev/null`
+echo $DATE,$CURL >> \/tmp\/load_tester_svc_ip_5s-$DATE.log
 echo "still running, yall"
 sleep 5
 done

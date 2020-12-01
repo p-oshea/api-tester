@@ -1,0 +1,1433 @@
+Received: from apsrp03851.uhc.com (10.204.67.90) by apsep00630.ms.ds.uhc.com
+ (10.86.24.45) with Microsoft SMTP Server id 14.3.408.0; Tue, 8 Jan 2019
+ 08:49:32 -0600
+Received: from apsrp02726.uhc.com (HELO agari-sensor) ([10.86.176.232])  by
+ apsrp03851.uhc.com with ESMTP; 08 Jan 2019 08:49:33 -0600
+Received: from f50adf2dc22b (localhost [127.0.0.1])	by agari-sensor (Postfix)
+ with ESMTP id 43YwBz6gYFz7VT	for <poshea@optum.com>; Tue,  8 Jan 2019
+ 14:49:31 +0000 (UTC)
+Received: from mail2.corpmailsvcs.com (unknown [198.203.174.10])	(using
+ TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))	(No client
+ certificate requested)	by agari-sensor (Postfix) with ESMTPS id 43YwBp20MhzWG
+	for <poshea@optum.com>; Tue,  8 Jan 2019 14:49:22 +0000 (UTC)
+X-UHG-External: External
+Received: from fe-ply-mail05-pe3.corpmailsvcs.com (HELO fe-ply-mail05.uhc.com)
+ ([198.203.174.22])  by mail6.corpmailsvcs.com with ESMTP; 08 Jan 2019
+ 08:49:21 -0600
+Received: from localhost.localdomain (localhost [127.0.0.1])	by
+ fe-ply-mail05.uhc.com (Postfix) with SMTP id 43YwBn6bVzz6J6GJ	for
+ <poshea@optum.com>; Tue,  8 Jan 2019 08:49:21 -0600 (CST)
+Received: from mail1.corpmailsvcs.com (unknown [198.203.174.9])	by
+ fe-ply-mail05.uhc.com (Postfix) with ESMTP id 43YwBm407Cz6J6GX	for
+ <poshea@optum.com>; Tue,  8 Jan 2019 08:49:20 -0600 (CST)
+Authentication-Results: mail1.corpmailsvcs.com;
+ dkim=none (message not signed) header.i=none;
+ spf=Pass smtp.mailfrom=ascheneman@kpmg.com
+Received-SPF: Pass (mail1.corpmailsvcs.com: domain of
+  ascheneman@kpmg.com designates 67.231.148.125 as permitted
+  sender) identity=mailfrom; client-ip=67.231.148.125;
+  receiver=mail1.corpmailsvcs.com;
+  envelope-from="ascheneman@kpmg.com";
+  x-sender="ascheneman@kpmg.com"; x-conformance=spf_only;
+  x-record-type="v=spf1"
+X-SBRS: 3.5
+X-FireEye-1: True
+X-FE-1: True
+IronPort-PHdr: =?us-ascii?q?9a23=3A7ufwZRST6E1f7YOVfZdVLfk9Tdpsv+yvbD5Q0YIu?=
+ =?us-ascii?q?jvd0So/mwa6zZBWN2/xhgRfzUJnB7Loc0qyK6/CmATRIyK3CmUhKSIZLWR4BhJ?=
+ =?us-ascii?q?detC0bK+nBN3fGKuX3ZTcxBsVIWQwt1Xi6NU9IBJS2PAWK8TW94jEIBxrwKxd+?=
+ =?us-ascii?q?KPjrFY7OlcS30P2594HObwlSizexfbB/IA+qoQnNq8IbnZZsJqEtxxXTv3BGYf?=
+ =?us-ascii?q?5WxWRmJVKSmxbz+MK994N9/ipTpvws6ddOXb31cKokQ7NYCi8mM30u683wqRbD?=
+ =?us-ascii?q?VwqP6WACXWgQjxFFHhLK7BD+Xpf2ryv6qu9w0zSUMMHqUbw5Xymp4qF2QxHqlS?=
+ =?us-ascii?q?gHLSY0/mHJhMJtkKJVrhGvpxJ9zI7VfI6aO+FzcbnBcd4eX2dNQtpdWi5HD4ih?=
+ =?us-ascii?q?b4UPFe0BPeNAooXzulUBsRu+CheqBOzxzz9HnHn20bUn2Ok9FwHJwRYgEMwAsX?=
+ =?us-ascii?q?/Jqdv5OroZXOevw6nT0TrDb+1Z2THj54jNaB8hp+qBU7doccrUxkkjDR3IjlKV?=
+ =?us-ascii?q?qYH8OT6ey+oDs2+e7+V6VOKvjXYqqwVwojipxccjlJTGhoMTylze6Sp5x4M1Kc?=
+ =?us-ascii?q?WkSE91YN6kDIdQuD+AN4dsXswiRGRotD45yr0evJ67czIGx4ggxx7ac/CHdomI?=
+ =?us-ascii?q?7Q75VOaWOjd4g3xleK6lixmu9kigz+vxXdS33lZStidIk9vBumoT2xHd98SLUO?=
+ =?us-ascii?q?Zx80ii1DqVygzf9OFJLVgpmabHMZIt36Q8moQPvUjeBCP7l0v7gLeLekgg/uWk?=
+ =?us-ascii?q?8frrbqnkq5OGKoN5hQ7zPr4zlsCjB+kzLxIAUHKB+eum0b3u5U35T6tOjv0xiq?=
+ =?us-ascii?q?TZtZ/bKdgBqaKgHwNZzpsv5wijAzi9zNgUg2MLLEpdeBKHiIjpIE3OL+7lAvul?=
+ =?us-ascii?q?n1uslzJry+jHPr3nHJrNMmDOnbbjcLpn9UJRxhc/wcpC659bCbwNOu//VlHxud?=
+ =?us-ascii?q?DACx82KQ20w+LpCNVn0YMeXHqCDbWCMKzOsV+H+OQvLPeJZIAPvjbwMPsl5+br?=
+ =?us-ascii?q?jX82g1MSYa6p3Z4PZHCiAvtmO1mZYWbrgtoZCWcKuRE+TOz0h1KYSjNTYG6yX7?=
+ =?us-ascii?q?4h5jE+Eo6pEYDDRoX+yICGiW2jGYZWa2luDUiQDHKufIKBEb9YcCWJIsJoujsc?=
+ =?us-ascii?q?SaWkDYQm0Ef9mhX9zu8tFeHU9ysVsJvlkJBc4eHJmA561nY8W82G2GGASWxxl2?=
+ =?us-ascii?q?UgZCcz0+ZUpkkrmQTL6rRxn/ENTY8b3PhOSApvbceNndw/MMj7X0f6RvnMTV+n?=
+ =?us-ascii?q?Rtu8BjRoFoAy29oBJU16Hof7gw=3D=3D?=
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: =?us-ascii?q?A0EEAADftTRch32U50NfAxwBAQEEAQEHB?=
+ =?us-ascii?q?AEBgVEHAQELAYENgVyBAicKg3WDSoRQX40al3EUgQcFHxclCwEBJQmEPgIXgXw?=
+ =?us-ascii?q?hATQJDQEDAQEBAQEBAQEBAQIQAQEBCA0JCCkjAQuCOiIYBDkULwkBATABAQEBA?=
+ =?us-ascii?q?QEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQcCCBEiCAQPAQEYAQEBAQM?=
+ =?us-ascii?q?eBQo7CQIGDgICAQgRAwEBAQsWAQIEAwICAhkLDBQJCAIEDgQBCIMaAYEbAmQPp?=
+ =?us-ascii?q?m0BAQFugS+DcTwBhX4FgRaKB4EdF4FBPiaBMYF8Ii6BQXlLGQEBAQEYgQsEBQE?=
+ =?us-ascii?q?LBwEbBgQBBwMGCAEBBgUKAgYJgkEXGoImAok2AQqBEYUCkhMJAocWiDiCSwKBV?=
+ =?us-ascii?q?k2EV4pugxGFVYEEgQeDUCoHgwCFBoMvAgQCBAUCFIFGgR5xcIM8CQqCFA4JE4M?=
+ =?us-ascii?q?4ilM/AQExATCIHg8XgQiBHwEB?=
+X-IPAS-Result: =?us-ascii?q?A0EEAADftTRch32U50NfAxwBAQEEAQEHBAEBgVEHAQELAYE?=
+ =?us-ascii?q?NgVyBAicKg3WDSoRQX40al3EUgQcFHxclCwEBJQmEPgIXgXwhATQJDQEDAQEBA?=
+ =?us-ascii?q?QEBAQEBAQIQAQEBCA0JCCkjAQuCOiIYBDkULwkBATABAQEBAQEBAQEBAQEBAQE?=
+ =?us-ascii?q?BAQEBAQEBAQEBAQEBAQEBAQEBAQcCCBEiCAQPAQEYAQEBAQMeBQo7CQIGDgICA?=
+ =?us-ascii?q?QgRAwEBAQsWAQIEAwICAhkLDBQJCAIEDgQBCIMaAYEbAmQPpm0BAQFugS+DcTw?=
+ =?us-ascii?q?BhX4FgRaKB4EdF4FBPiaBMYF8Ii6BQXlLGQEBAQEYgQsEBQELBwEbBgQBBwMGC?=
+ =?us-ascii?q?AEBBgUKAgYJgkEXGoImAok2AQqBEYUCkhMJAocWiDiCSwKBVk2EV4pugxGFVYE?=
+ =?us-ascii?q?EgQeDUCoHgwCFBoMvAgQCBAUCFIFGgR5xcIM8CQqCFA4JE4M4ilM/AQExATCIH?=
+ =?us-ascii?q?g8XgQiBHwEB?=
+X-IronPort-AV: E=Sophos;i="5.56,454,1539666000";
+   d="scan'208,217";a="828152867"
+Received: from mx0a-00120b02.pphosted.com ([67.231.148.125])  by
+ mail1.corpmailsvcs.com with ESMTP/TLS/AES256-GCM-SHA384; 08 Jan 2019 08:49:16
+ -0600
+Received: from pps.filterd (m0085733.ppops.net [127.0.0.1])	by
+ mx0b-00120b02.pphosted.com (8.16.0.22/8.16.0.22) with SMTP id x08EWehM142299
+	for <poshea@optum.com>; Tue, 8 Jan 2019 14:49:14 GMT
+Received: from usmdcebb6003.us.kworld.kpmg.com ([199.207.144.10])	by
+ mx0b-00120b02.pphosted.com with ESMTP id 2pvwbws9br-1	(version=TLSv1.2
+ cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)	for
+ <poshea@optum.com>; Tue, 08 Jan 2019 14:49:14 +0000
+Received: from pps.filterd (USMDCEBB6003.us.kworld.kpmg.com [127.0.0.1])	by
+ USMDCEBB6003.us.kworld.kpmg.com (8.16.0.22/8.16.0.22) with SMTP id
+ x084K2m7070085	for <poshea@optum.com>; Tue, 8 Jan 2019 09:49:11 -0500
+Received: from usmdcexc253.us.kworld.kpmg.com
+ (usmdcepap4040.us.kworld.kpmg.com [10.0.122.56])	by
+ USMDCEBB6003.us.kworld.kpmg.com with ESMTP id 2ptsdu8p0h-1	for
+ <poshea@optum.com>; Tue, 08 Jan 2019 09:49:11 -0500
+Received: from USMDCEXC352.us.kworld.kpmg.com ([10.1.201.221]) by usmdcexc253
+ ([10.1.201.217]) with mapi id 14.03.0415.000; Tue, 8 Jan 2019 09:49:12 -0500
+X-FireEye: Clean
+From: "Scheneman, Andrew K" <ascheneman@Kpmg.Com>
+To: "poshea@optum.com" <poshea@optum.com>
+CC: US-MIN TAX GMS UHG Mailbox <us-mintaxiesuhg@kpmg.com>
+Subject: RE: United States Departure Meeting session SCHEDULED for Patrick
+ O'Shea - 08 Jan 2019 10:30AM United States - Florida (GMT -0500)
+Thread-Topic: United States Departure Meeting session SCHEDULED for Patrick
+ O'Shea - 08 Jan 2019 10:30AM United States - Florida (GMT -0500)
+Thread-Index: AQHUl7FiVWgY6o+0TUWHgKSkebgTGqWlkivQ
+Date: Tue, 8 Jan 2019 14:49:11 +0000
+Deferred-Delivery: Tue, 8 Jan 2019 14:48:56 +0000
+Message-ID: <1644EC1598730E49AD0BF3DC67F66FB142D47384@usmdcexc352>
+References: <USMDCEPAP6950AW4eE20000570a@USMDCEPAP6950.us.kworld.kpmg.com>
+In-Reply-To: <USMDCEPAP6950AW4eE20000570a@USMDCEPAP6950.us.kworld.kpmg.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-originating-ip: [10.1.201.43]
+MIME-Version: 1.0
+X-CFilter-Loop: Reflected
+X-Proofpoint-Virus-Version: vendor=nai engine=5900 definitions=9129
+ signatures=668680
+X-Proofpoint-Disc: 1
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,,
+ definitions=2019-01-08_08:,,
+ signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_spam_notspam policy=outbound_spam
+ score=0 priorityscore=1501
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1901080120
+X-Agari-MsgInfo: 95cae436-1354-11e9-948c-0242ac120002;1546958962
+X-Agari-Trust-Score: 9.0
+Return-Path: ascheneman@kpmg.com
+X-MS-Exchange-Organization-AuthSource: APSEP00630.ms.ds.uhc.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AVStamp-Mailbox: SYMANTEC;673644672;0;info
+Content-type: multipart/alternative;
+	boundary="B_3635395663_1022759082"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3635395663_1022759082
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+Hi Patrick,=20
+
+=20
+
+Looking forward to speaking with you shortly. I wanted to provide the addit=
+ional Skype detail below as I will be going  through a slide deck during our=
+ call. If you experience any issues joining, please let me know.=20
+
+=20
+
+...........................................................................=
+..............................................................
+
+=C3=A0 Join Skype Meeting    =20
+
+Trouble Joining? Try Skype Web App=20
+
+Join by phone
+
++12014744080 (US)                            English (United States)=20
+
++18444258144 (US)                            English (United States) =20
+
+Find a local number=20
+
+=20
+
+Conference ID: 432078251
+
+Forgot  your dial-in PIN? |Help |Legal  =20
+
+=20
+
+=20
+
+Kind regards,=20
+
+=20
+
+Andrew Scheneman
+
+KPMG LLP | Senior Associate, Global Mobility Services=20
+
+4200 Wells Fargo Center | 90 South Seventh Street  | Minneapolis, MN 55402=20
+Phone: 612.305.5563 | ascheneman@kpmg.com
+
+kpmg.com/us  | KPMG  on LinkedIn | KPMG  on Twitter
+
+=20
+
+=20
+
+=20
+
+From: IES  Global Tracking System [mailto:us-taxieskpmglink@kpmg.com]=20
+Sent: Wednesday, December 19, 2018 9:42 AM
+To: poshea@optum.com
+Cc: Rogers, Dionne N <dnrogers@kpmg.com>; Nowak, Christine A <chomrich@KPMG=
+.com>; Scheneman, Andrew K <ascheneman@Kpmg.Com>
+Subject: United States Departure Meeting session SCHEDULED for Patrick O'Sh=
+ea - 08 Jan 2019 10:30AM United States - Florida (GMT -0500)
+Importance: High
+
+=20
+
+Dear Patrick,
+
+This e-mail message is to confirm your recently scheduled United States Dep=
+arture Meeting session with KPMG. The session will be conducted by Andrew Sc=
+heneman.
+
+Some additional meeting details are noted below:
+
+Meeting Format: Telephone
+Telephone Details: Call-in Telephone Number: 1(201)474-4080; 1(844)425-8144
+Conference ID # 432078251
+
+Session Date: Tuesday, 08 Jan 2019
+Session Start Time: 10:30AM United States - Florida (GMT -0500)
+Session Length: 1 hour 30 minutes
+
+If available within your e-mail, please utilize the automated option for ad=
+ding this meeting to your calendar so it will reflect the appropriate time z=
+one. If you are adding this meeting to your calendar manually, please note t=
+he appropriate time zone for this  meeting.
+
+<< Meeting request attached >>
+
+Sincerely,
+
+KPMG Global Mobility Services
+
+
+
+
+=C2=A9 2018 KPMG LLP, a Delaware limited liability partnership and the U.S. mem=
+ber firm of the KPMG network of independent member firms affiliated  with KP=
+MG International Cooperative ("KPMG International"), a Swiss entity. All rig=
+hts reserved.=20
+=20
+
+Any advice in this communication is limited to the conclusions specifically=
+ set forth herein and is based on the completeness and accuracy of the state=
+d facts, assumptions and/or representations included. In rendering our advic=
+e, we may consider tax authorities  that are subject to change, retroactivel=
+y and/or prospectively, and any such changes could affect the validity of ou=
+r advice. We will not update our advice for subsequent changes or modificati=
+ons to the laws and regulations, or to the judicial and administrative  inte=
+rpretations thereof. The advice or other information in this document was pr=
+epared for the sole benefit of KPMG's client and may not be relied upon by a=
+ny other person or organization. KPMG accepts no responsibility or liability=
+ in respect of this document  to any person or organization other than KPMG'=
+s client.
+The information in this email is confidential and may be legally privileged=
+. It is intended solely for the addressee. Access to this email by anyone el=
+se is unauthorized. If you are not the intended recipient, any disclosure, c=
+opying, distribution or any action  taken or omitted to be taken in reliance=
+ on it, is prohibited and may be unlawful. When addressed to our clients any=
+ opinions or advice contained in this email are subject to the terms and con=
+ditions expressed in the governing KPMG client engagement letter.
+***********************************************************************
+
+
+--B_3635395663_1022759082
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsof=
+t-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" xmlns:m=
+=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org=
+/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"ProgId" content=3D"Word.Document">
+<meta name=3D"Generator" content=3D"Microsoft Word 15">
+<meta name=3D"Originator" content=3D"Microsoft Word 15">
+<link rel=3D"File-List" href=3D"cid:filelist.xml@01D4A72E.D99657F0"><link rel=3D"=
+Edit-Time-Data" href=3D"cid:editdata.mso"><!--[if !mso]><style>v\:* {behavior:=
+url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><!--[if gte mso 9]><xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+</o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<w:WordDocument>
+<w:Zoom>80</w:Zoom>
+<w:SpellingState>Clean</w:SpellingState>
+<w:TrackMoves/>
+<w:TrackFormatting/>
+<w:EnvelopeVis/>
+<w:ValidateAgainstSchemas/>
+<w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+<w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+<w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+<w:DoNotPromoteQF/>
+<w:LidThemeOther>EN-US</w:LidThemeOther>
+<w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+<w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+<w:Compatibility>
+<w:DoNotExpandShiftReturn/>
+<w:BreakWrappedTables/>
+<w:SplitPgBreakAndParaMark/>
+<w:EnableOpenTypeKerning/>
+</w:Compatibility>
+<m:mathPr>
+<m:mathFont m:val=3D"Cambria Math"/>
+<m:brkBin m:val=3D"before"/>
+<m:brkBinSub m:val=3D"&#45;-"/>
+<m:smallFrac m:val=3D"off"/>
+<m:dispDef/>
+<m:lMargin m:val=3D"0"/>
+<m:rMargin m:val=3D"0"/>
+<m:defJc m:val=3D"centerGroup"/>
+<m:wrapIndent m:val=3D"1440"/>
+<m:intLim m:val=3D"subSup"/>
+<m:naryLim m:val=3D"undOvr"/>
+</m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<w:LatentStyles DefLockedState=3D"false" DefUnhideWhenUsed=3D"false" DefSemiHid=
+den=3D"false" DefQFormat=3D"false" DefPriority=3D"99" LatentStyleCount=3D"371">
+<w:LsdException Locked=3D"false" Priority=3D"0" QFormat=3D"true" Name=3D"Normal"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" Name=3D"heading 1"=
+/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 7"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 8"/>
+<w:LsdException Locked=3D"false" Priority=3D"9" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" QFormat=3D"true" Name=3D"heading 9"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 6"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 7"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 8"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index 9"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 7"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 8"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"toc 9"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Normal Indent"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"footnote text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"annotation text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"header"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"footer"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"index heading"/>
+<w:LsdException Locked=3D"false" Priority=3D"35" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" QFormat=3D"true" Name=3D"caption"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"table of figures"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"envelope address"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"envelope return"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"footnote reference"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"annotation reference"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"line number"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"page number"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"endnote reference"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"endnote text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"table of authorities"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"macro"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"toa heading"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Bullet"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Number"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Bullet 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Bullet 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Bullet 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Bullet 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Number 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Number 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Number 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Number 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"10" QFormat=3D"true" Name=3D"Title"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Closing"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Signature"/>
+<w:LsdException Locked=3D"false" Priority=3D"1" SemiHidden=3D"true" UnhideWhenUse=
+d=3D"true" Name=3D"Default Paragraph Font"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text Indent"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Continue"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Continue 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Continue 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Continue 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"List Continue 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Message Header"/>
+<w:LsdException Locked=3D"false" Priority=3D"11" QFormat=3D"true" Name=3D"Subtitle"=
+/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Salutation"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Date"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text First Indent"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text First Indent 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Note Heading"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text Indent 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Body Text Indent 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Block Text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Hyperlink"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"FollowedHyperlink"/>
+<w:LsdException Locked=3D"false" Priority=3D"22" QFormat=3D"true" Name=3D"Strong"/>
+<w:LsdException Locked=3D"false" Priority=3D"20" QFormat=3D"true" Name=3D"Emphasis"=
+/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Document Map"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Plain Text"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"E-mail Signature"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Top of Form"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Bottom of Form"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Normal (Web)"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Acronym"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Address"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Cite"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Code"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Definition"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Keyboard"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Preformatted"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Sample"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Typewriter"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"HTML Variable"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Normal Table"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"annotation subject"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"No List"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Outline List 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Outline List 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Outline List 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Simple 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Simple 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Simple 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Classic 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Classic 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Classic 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Classic 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Colorful 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Colorful 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Colorful 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Columns 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Columns 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Columns 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Columns 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Columns 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 6"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 7"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Grid 8"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 4"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 5"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 6"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 7"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table List 8"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table 3D effects 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table 3D effects 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table 3D effects 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Contemporary"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Elegant"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Professional"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Subtle 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Subtle 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Web 1"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Web 2"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Web 3"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Balloon Text"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"Table Grid"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" UnhideWhenUsed=3D"true" Name=
+=3D"Table Theme"/>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" Name=3D"Placeholder Text"/>
+<w:LsdException Locked=3D"false" Priority=3D"1" QFormat=3D"true" Name=3D"No Spacing=
+"/>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading"/>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List"/>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid"/>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+1"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+1"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 1"/=
+>
+<w:LsdException Locked=3D"false" SemiHidden=3D"true" Name=3D"Revision"/>
+<w:LsdException Locked=3D"false" Priority=3D"34" QFormat=3D"true" Name=3D"List Para=
+graph"/>
+<w:LsdException Locked=3D"false" Priority=3D"29" QFormat=3D"true" Name=3D"Quote"/>
+<w:LsdException Locked=3D"false" Priority=3D"30" QFormat=3D"true" Name=3D"Intense Q=
+uote"/>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+1"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 1"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+2"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+2"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+2"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 2"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+3"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+3"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+3"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 3"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+4"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+4"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+4"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 4"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+5"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+5"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+5"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 5"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"60" Name=3D"Light Shading Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"61" Name=3D"Light List Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"62" Name=3D"Light Grid Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"63" Name=3D"Medium Shading 1 Accent =
+6"/>
+<w:LsdException Locked=3D"false" Priority=3D"64" Name=3D"Medium Shading 2 Accent =
+6"/>
+<w:LsdException Locked=3D"false" Priority=3D"65" Name=3D"Medium List 1 Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"66" Name=3D"Medium List 2 Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"67" Name=3D"Medium Grid 1 Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"68" Name=3D"Medium Grid 2 Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"69" Name=3D"Medium Grid 3 Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"70" Name=3D"Dark List Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"71" Name=3D"Colorful Shading Accent =
+6"/>
+<w:LsdException Locked=3D"false" Priority=3D"72" Name=3D"Colorful List Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"73" Name=3D"Colorful Grid Accent 6"/=
+>
+<w:LsdException Locked=3D"false" Priority=3D"19" QFormat=3D"true" Name=3D"Subtle Em=
+phasis"/>
+<w:LsdException Locked=3D"false" Priority=3D"21" QFormat=3D"true" Name=3D"Intense E=
+mphasis"/>
+<w:LsdException Locked=3D"false" Priority=3D"31" QFormat=3D"true" Name=3D"Subtle Re=
+ference"/>
+<w:LsdException Locked=3D"false" Priority=3D"32" QFormat=3D"true" Name=3D"Intense R=
+eference"/>
+<w:LsdException Locked=3D"false" Priority=3D"33" QFormat=3D"true" Name=3D"Book Titl=
+e"/>
+<w:LsdException Locked=3D"false" Priority=3D"37" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" Name=3D"Bibliography"/>
+<w:LsdException Locked=3D"false" Priority=3D"39" SemiHidden=3D"true" UnhideWhenUs=
+ed=3D"true" QFormat=3D"true" Name=3D"TOC Heading"/>
+<w:LsdException Locked=3D"false" Priority=3D"41" Name=3D"Plain Table 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"42" Name=3D"Plain Table 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"43" Name=3D"Plain Table 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"44" Name=3D"Plain Table 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"45" Name=3D"Plain Table 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"40" Name=3D"Grid Table Light"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"Grid Table 1 Light Accen=
+t 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"Grid Table 2 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"Grid Table 3 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"Grid Table 4 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"Grid Table 5 Dark Accent=
+ 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"Grid Table 6 Colorful Ac=
+cent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"Grid Table 7 Colorful Ac=
+cent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 1"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 2"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 3"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 4"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 5"/>
+<w:LsdException Locked=3D"false" Priority=3D"46" Name=3D"List Table 1 Light Accen=
+t 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"47" Name=3D"List Table 2 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"48" Name=3D"List Table 3 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"49" Name=3D"List Table 4 Accent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"50" Name=3D"List Table 5 Dark Accent=
+ 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"51" Name=3D"List Table 6 Colorful Ac=
+cent 6"/>
+<w:LsdException Locked=3D"false" Priority=3D"52" Name=3D"List Table 7 Colorful Ac=
+cent 6"/>
+</w:LatentStyles>
+</xml><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:Symbol;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-alt:"Calisto MT";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-alt:"Century Gothic";
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-alt:" arial";
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1593833729 1073750107 16 0 415 0;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:Calibri;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:Calibri;}
+span.EmailStyle18
+	{mso-style-type:personal-reply;
+	mso-style-noshow:yes;
+	mso-style-unhide:no;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-fareast-font-family:Calibri;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:"Times New Roman";
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 10]><style>/* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+</style><![endif]--><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body bgcolor=3D"#E4E4E4" lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"=
+tab-interval:.5in">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D">Hi Patrick,
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D">Looking forward to speaking with you shortly. I wanted to provide the=
+ additional Skype detail below as I will be going
+ through a slide deck during our call. If you experience any issues joining=
+, please let me know.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-pagination:none;mso-layout-grid-align:none;=
+text-autospace:none">
+<span style=3D"font-size:8.0pt;font-family:&quot;Calibri&quot;,sans-serif;col=
+or:#404040">................................................................=
+.........................................................................</s=
+pan><b><span style=3D"font-size:14.0pt;font-family:&quot;Calibri&quot;,sans-se=
+rif"><o:p></o:p></span></b></p>
+<p class=3D"MsoNormal" style=3D"mso-pagination:none;mso-layout-grid-align:none;=
+text-autospace:none">
+<a name=3D"OutJoinLink"><span style=3D"font-size:14.0pt;mso-bidi-font-size:12.0=
+pt;font-family:Wingdings;mso-ascii-font-family:Calibri;mso-hansi-font-family=
+:Calibri;mso-bidi-font-family:Calibri;color:#0066CC;mso-char-type:symbol;mso=
+-symbol-font-family:Wingdings"><span style=3D"mso-char-type:symbol;mso-symbol-=
+font-family:Wingdings">=C3=A0</span></span></a><span style=3D"mso-bookmark:OutJoin=
+Link"><span style=3D"font-size:14.0pt;font-family:&quot;Calibri&quot;,sans-ser=
+if;color:#0066CC">
+</span></span><a href=3D"https://collab-e.us.kpmg.com/meet/ascheneman/F21LVGB=
+2"><span style=3D"mso-bookmark:OutJoinLink"><span style=3D"font-size:16.0pt;font=
+-family:&quot;Calibri&quot;,sans-serif;color:#0066CC">Join Skype Meeting</sp=
+an></span><span style=3D"mso-bookmark:OutJoinLink"></span></a><span style=3D"mso=
+-bookmark:OutJoinLink"><span style=3D"font-size:14.0pt;font-family:&quot;Calib=
+ri&quot;,sans-serif"><span style=3D"mso-spacerun:yes">&nbsp;
+</span><a name=3D"OutSharedNoteBorder"><span style=3D"mso-spacerun:yes">&nbsp;<=
+/span></a><span style=3D"mso-spacerun:yes">&nbsp;&nbsp;</span><a name=3D"OutShar=
+edNoteLink"><span style=3D"mso-spacerun:yes">&nbsp;</span></a></span></span><s=
+pan style=3D"font-size:14.0pt;font-family:&quot;Calibri&quot;,sans-serif"><o:p=
+></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:3.0pt;margin-right:0in;margi=
+n-bottom:12.0pt;margin-left:16.0pt;line-height:125%;mso-pagination:none;mso-=
+layout-grid-align:none;text-autospace:none">
+<span style=3D"font-size:10.0pt;line-height:125%;font-family:&quot;Calibri&qu=
+ot;,sans-serif">Trouble Joining?
+<u><a href=3D"https://collab-e.us.kpmg.com/meet/ascheneman/F21LVGB2?sl=3D1"><sp=
+an style=3D"color:#0066CC">Try Skype Web App</span></a>
+</u><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-pagination:none;mso-layout-grid-align:none;=
+text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:13.0pt;font-family:&quot;Calibri&quot;,san=
+s-serif;color:black;mso-ansi-language:EN">Join by phone</span><span lang=3D"EN=
+" style=3D"font-size:8.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ansi=
+-language:EN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:2.0pt;mso-pagination:none;mso-lay=
+out-grid-align:none;text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:10.0pt;font-family:&quot;Calibri&quot;,san=
+s-serif;mso-ansi-language:EN"><a href=3D"tel:&#43;12014744080"><span style=3D"co=
+lor:#0066CC">&#43;12014744080</span></a> (US)
+<span style=3D"mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>English (United States)
+</span><span lang=3D"EN" style=3D"font-size:8.0pt;font-family:&quot;Calibri&quo=
+t;,sans-serif;mso-ansi-language:EN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:2.0pt;mso-pagination:none;mso-lay=
+out-grid-align:none;text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:10.0pt;font-family:&quot;Calibri&quot;,san=
+s-serif;mso-ansi-language:EN"><a href=3D"tel:&#43;18444258144"><span style=3D"co=
+lor:#0066CC">&#43;18444258144</span></a> (US)
+<span style=3D"mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>English (United States)
+</span><span lang=3D"EN" style=3D"font-size:3.0pt;font-family:&quot;Calibri&quo=
+t;,sans-serif;mso-ansi-language:EN"><span style=3D"mso-spacerun:yes">&nbsp;</s=
+pan><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:2.0pt;mso-pagination:none;mso-lay=
+out-grid-align:none;text-autospace:none">
+<u><span lang=3D"EN" style=3D"font-size:10.0pt;font-family:&quot;Calibri&quot;,=
+sans-serif;color:#943634;mso-ansi-language:EN"><a href=3D"https://collab-e.us.=
+kpmg.com/dialin"><span style=3D"color:#0066CC">Find a local number</span></a><=
+/span></u><span lang=3D"EN" style=3D"font-size:11.0pt;font-family:&quot;Calibri&=
+quot;,sans-serif;mso-ansi-language:EN">
+</span><span lang=3D"EN" style=3D"font-size:10.5pt;font-family:&quot;Calibri&qu=
+ot;,sans-serif;mso-ansi-language:EN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:2.0pt;mso-pagination:none;mso-lay=
+out-grid-align:none;text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:8.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;mso-ansi-language:EN"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:2.0pt;mso-pagination:none;mso-lay=
+out-grid-align:none;text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:10.0pt;font-family:&quot;Calibri&quot;,san=
+s-serif;mso-ansi-language:EN">Conference ID: 432078251</span><span lang=3D"EN"=
+ style=3D"font-size:10.5pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ansi=
+-language:EN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-pagination:none;mso-layout-grid-align:none;=
+text-autospace:none">
+<span lang=3D"EN" style=3D"font-size:3.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;mso-ansi-language:EN"></span><span lang=3D"EN" style=3D"font-size:10.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif;color:#0066CC;mso-ansi-language:E=
+N"><a href=3D"https://collab-e.us.kpmg.com/dialin"><span style=3D"color:#0066CC"=
+>Forgot
+ your dial-in PIN?</span></a></span><span lang=3D"EN" style=3D"font-size:3.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif;mso-ansi-language:EN">
+</span><span lang=3D"EN" style=3D"font-size:11.0pt;font-family:&quot;Calibri&qu=
+ot;,sans-serif;mso-ansi-language:EN">|</span><span lang=3D"EN" style=3D"font-siz=
+e:10.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ansi-language:EN"><a=
+ href=3D"https://o15.officeredir.microsoft.com/r/rlidLync15?clid=3D1033&amp;p1=3D5=
+&amp;p2=3D2009"><span style=3D"color:#0066CC">Help</span></a></span><span lang=3D"=
+EN" style=3D"font-size:3.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-an=
+si-language:EN"><span style=3D"mso-spacerun:yes">&nbsp;
+</span></span><span lang=3D"EN" style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif;mso-ansi-language:EN">|</span><span lang=3D"EN" style=3D"f=
+ont-size:10.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-ansi-language=
+:EN"><a href=3D"https://home.kpmg.com/us/en/home/misc/legal.html"><span style=3D=
+"color:#0066CC">Legal</span></a></span><span lang=3D"EN" style=3D"font-size:3.0p=
+t;font-family:&quot;Calibri&quot;,sans-serif;mso-ansi-language:EN"><span sty=
+le=3D"mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span></span><span lang=3D"EN" style=3D"font-size:8.0pt;font-family:&quot;Cali=
+bri&quot;,sans-serif;mso-ansi-language:EN"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D">Kind regards,
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:5.0pt;margin-right:0in;margi=
+n-bottom:5.0pt;margin-left:0in;line-height:13.0pt;text-autospace:none">
+<b><span style=3D"font-size:10.0pt;font-family:&quot;Verdana&quot;,sans-serif=
+;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:Ca=
+libri;color:#222A35;mso-no-proof:yes">Andrew Scheneman<o:p></o:p></span></b>=
+</p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:5.0pt;margin-right:0in;margi=
+n-bottom:5.0pt;margin-left:0in;line-height:13.0pt;text-autospace:none">
+<b><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;=
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:Cal=
+ibri;color:blue;mso-no-proof:yes">KPMG</span></b><b><span style=3D"font-size:8=
+.0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-fareast-font-family:&quo=
+t;Times New Roman&quot;;color:navy;mso-no-proof:yes">
+</span></b><b><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,=
+sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font=
+-family:Calibri;color:blue;mso-no-proof:yes">LLP</span></b><b><span style=3D"f=
+ont-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-font-f=
+amily:&quot;Times New Roman&quot;;mso-bidi-font-family:Calibri;color:blue;ms=
+o-no-proof:yes">
+</span></b><b><span style=3D"font-size:9.0pt;font-family:&quot;Verdana&quot;,=
+sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font=
+-family:Calibri;color:gray;mso-no-proof:yes">| Senior
+</span></b><b><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,=
+sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font=
+-family:Calibri;color:gray;mso-no-proof:yes">Associate, Global Mobility Serv=
+ices</span></b><span style=3D"font-size:9.0pt;font-family:&quot;Verdana&quot;,=
+sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font=
+-family:Calibri;color:navy;mso-no-proof:yes">
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-size:8.0=
+pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-font-family:&quot;=
+Times New Roman&quot;;mso-bidi-font-family:Calibri;color:gray;mso-no-proof:y=
+es">4200 Wells Fargo Center | 90 South Seventh Street
+ | Minneapolis, MN 55402</span><span style=3D"font-size:8.0pt;font-family:&qu=
+ot;Calibri&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&qu=
+ot;;color:navy;mso-no-proof:yes">
+</span><span style=3D"font-size:8.0pt;font-family:&quot;Arial&quot;,sans-seri=
+f;mso-fareast-font-family:&quot;Times New Roman&quot;;color:gray;mso-no-proo=
+f:yes"><br>
+</span><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-se=
+rif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family=
+:Calibri;color:gray;mso-no-proof:yes">Phone: 612.305.5563 |
+</span><u><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans=
+-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-fam=
+ily:Calibri;color:#0563C1;mso-no-proof:yes"><a href=3D"mailto:ascheneman@kpmg.=
+com"><span style=3D"color:#0563C1">ascheneman@kpmg.com</span></a><o:p></o:p></=
+span></u></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-size:11.=
+0pt;font-family:&quot;Calibri&quot;,sans-serif;mso-fareast-font-family:&quot=
+;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;colo=
+r:#1F497D;mso-no-proof:yes"><a href=3D"http://kpmg.com/us"><span style=3D"font-s=
+ize:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#00338D">kpmg.com/u=
+s</span></a></span><span style=3D"font-size:9.0pt;font-family:&quot;Arial&quot=
+;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#0033=
+8D;mso-no-proof:yes">
+ | </span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,san=
+s-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-fa=
+mily:&quot;Times New Roman&quot;;color:#1F497D;mso-no-proof:yes"><a href=3D"ht=
+tps://www.linkedin.com/company/kpmg-us"><span style=3D"font-size:9.0pt;font-fa=
+mily:&quot;Arial&quot;,sans-serif;color:#00338D">KPMG
+ on LinkedIn</span></a></span><span style=3D"font-size:9.0pt;font-family:&quo=
+t;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;=
+;color:#00338D;mso-no-proof:yes"> |
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-s=
+erif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-famil=
+y:&quot;Times New Roman&quot;;color:#1F497D;mso-no-proof:yes"><a href=3D"https=
+://twitter.com/KPMG_US"><span style=3D"font-size:9.0pt;font-family:&quot;Arial=
+&quot;,sans-serif;color:#00338D">KPMG
+ on Twitter</span></a></span><span style=3D"font-size:8.0pt;font-family:&quot=
+;Verdana&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot=
+;;mso-bidi-font-family:Calibri;color:gray;mso-no-proof:yes"><o:p></o:p></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;mso-bidi-font-family:&quot;Times New Roman&quot;;color:#1=
+F497D"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><a name=3D"_MailEndCompose"><span style=3D"font-size:11.0p=
+t;font-family:&quot;Calibri&quot;,sans-serif;mso-bidi-font-family:&quot;Time=
+s New Roman&quot;;color:#1F497D"><o:p>&nbsp;</o:p></span></a></p>
+<span style=3D"mso-bookmark:_MailEndCompose"></span>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in 0i=
+n 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">F=
+rom:</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;=
+,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;"> IES
+ Global Tracking System [mailto:us-taxieskpmglink@kpmg.com] <br>
+<b>Sent:</b> Wednesday, December 19, 2018 9:42 AM<br>
+<b>To:</b> poshea@optum.com<br>
+<b>Cc:</b> Rogers, Dionne N &lt;dnrogers@kpmg.com&gt;; Nowak, Christine A &=
+lt;chomrich@KPMG.com&gt;; Scheneman, Andrew K &lt;ascheneman@Kpmg.Com&gt;<br=
+>
+<b>Subject:</b> United States Departure Meeting session SCHEDULED for Patri=
+ck O'Shea - 08 Jan 2019 10:30AM United States - Florida (GMT -0500)<br>
+<b>Importance:</b> High<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div align=3D"center">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" wi=
+dth=3D"0" style=3D"width:6.25in;mso-cellspacing:0in;background:white;mso-yfti-tb=
+llook:1184;mso-padding-alt:0in 0in 0in 0in">
+<tbody>
+<tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-font-family:&quot;Times New R=
+oman&quot;"><img border=3D"0" width=3D"600" height=3D"100" id=3D"_x0000_i1025" src=3D"=
+https://kpmgvirtualihr.com/lib/images/OutlookBanner_LINK_600x100px.png" alt=3D=
+"KPMG LINK"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr style=3D"mso-yfti-irow:1;mso-yfti-lastrow:yes">
+<td width=3D"600" style=3D"width:420.0pt;padding:0in 0in 0in 0in">
+<div style=3D"margin-left:7.5pt;margin-top:18.75pt;margin-right:22.5pt;margin=
+-bottom:18.75pt" id=3D"divEmailBody">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Arial&=
+quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">Dear P=
+atrick,<br>
+<br>
+This e-mail message is to confirm your recently scheduled United States Dep=
+arture Meeting session with KPMG. The session will be conducted by Andrew Sc=
+heneman.<br>
+<br>
+Some additional meeting details are noted below:<br>
+<br>
+Meeting Format: Telephone<br>
+Telephone Details: Call-in Telephone Number: 1(201)474-4080; 1(844)425-8144=
+<br>
+Conference ID # 432078251<br>
+<br>
+Session Date: Tuesday, 08 Jan 2019<br>
+Session Start Time: 10:30AM United States - Florida (GMT -0500)<br>
+Session Length: 1 hour 30 minutes<br>
+<br>
+If available within your e-mail, please utilize the automated option for ad=
+ding this meeting to your calendar so it will reflect the appropriate time z=
+one. If you are adding this meeting to your calendar manually, please note t=
+he appropriate time zone for this
+ meeting.<br>
+<br>
+&lt;&lt; Meeting request attached &gt;&gt;<br>
+<br>
+Sincerely,<br>
+<br>
+KPMG Global Mobility Services<br>
+<br>
+<br>
+<br>
+<br>
+</span><span style=3D"font-size:8.0pt;font-family:&quot;Arial&quot;,sans-seri=
+f;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#666666">=C2=A9 2018=
+ KPMG LLP, a Delaware limited liability partnership and the U.S. member firm=
+ of the KPMG network of independent member firms affiliated
+ with KPMG International Cooperative (&quot;KPMG International&quot;), a Sw=
+iss entity. All rights reserved.</span><span style=3D"font-size:10.0pt;font-fa=
+mily:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Ro=
+man&quot;">
+<o:p></o:p></span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-font-family:&quot;Times New R=
+oman&quot;"><o:p>&nbsp;</o:p></span></p>
+</div>
+<div>Any advice in this communication is limited to the conclusions specifi=
+cally set forth herein and is based on the completeness and accuracy of the =
+stated facts, assumptions and/or representations included. In rendering our =
+advice, we may consider tax authorities
+ that are subject to change, retroactively and/or prospectively, and any su=
+ch changes could affect the validity of our advice. We will not update our a=
+dvice for subsequent changes or modifications to the laws and regulations, o=
+r to the judicial and administrative
+ interpretations thereof. The advice or other information in this document =
+was prepared for the sole benefit of KPMG's client and may not be relied upo=
+n by any other person or organization. KPMG accepts no responsibility or lia=
+bility in respect of this document
+ to any person or organization other than KPMG's client.<br>
+</div>
+<hr>
+The information in this email is confidential and may be legally privileged=
+. It is intended solely for the addressee. Access to this email by anyone el=
+se is unauthorized. If you are not the intended recipient, any disclosure, c=
+opying, distribution or any action
+ taken or omitted to be taken in reliance on it, is prohibited and may be u=
+nlawful. When addressed to our clients any opinions or advice contained in t=
+his email are subject to the terms and conditions expressed in the governing=
+ KPMG client engagement letter.<br>
+***********************************************************************<br>
+</body>
+</html>
+
+
+--B_3635395663_1022759082--
+

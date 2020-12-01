@@ -1,0 +1,78 @@
+files to set up powerlevel9k and zsh terminal.
+GZip 
+zsh-rc.tar.gz
+8 MB GZip — Click to download
+Uncompress zsh-rc.tar.gz
+
+move files to ~
+
+install homebrew
+    https://brew.sh
+    
+install tmux
+
+install powerline9k
+ https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-2-install-a-powerline-font
+
+install fontconfig
+ brew install fontconfig
+
+install powerline fonts
+ https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
+
+install nerd fonts
+brew tap caskroom/fonts
+  brew cask install font-hack-nerd-font
+          https://github.com/ryanoasis/nerd-fonts
+brew install helm
+
+ brew install kubernetes-helm
+ 636  brew install kubectl
+ 742  brew install undocker
+ 973  brew install yarn
+ 977  brew install maven
+1382  brew install apb
+1930  brew install istat
+1931  brew install istats
+1967  brew install @openshift-cli:3.6
+1991  brew install dcos
+1992  brew install dcos-cli
+2241  brew install openssl
+2414  brew install caskroom/fonts/font-awesome-terminal-fonts
+2418  for i in $(brew search nerd-font | grep nerd-font); do brew install $i; done
+3171  brew install groovy
+3214  brew install jq
+3279  brew install wdiff
+3304  brew install docker
+3341  brew install kubernetes-cli kubernetes-helm
+3382  brew install xmllint
+3436  brew install openjdk
+3444  brew update\nbrew tap caskroom/cask\nbrew install brew-cask-completion
+3559  brew install xcode
+3570  brew install eclipse-java
+3646  brew install gulp
+3647  brew install caskroom/cask/gulp
+3672  brew install nvm
+3856  brew install grafana-cli
+3903  brew install go
+4198  brew install dos2unix
+4735  brew install openshift-cli@3.7.1
+4736  brew install openshift-cli@3.7.0
+4737  brew install openshift-cli@3.7
+4739  brew install openshift-cli:3.7
+4755  brew install iptraf
+5146  brew install s2i
+6027  brew install docker-diagnose
+7531  brew install gox
+7550  brew install openssl@1.1
+9107  brew install neovim
+9120  brew install koekeishiya/formulae/chunkwm
+9125  brew install --HEAD chunkwm
+9140  brew install gradle
+9731  brew install chunkwm
+9848  brew install gatling
+9954  brew install wireshark
+9962  brew install gotop && brew cask install 1password && brew install koekeishiya/formulae/skhd
+9963  brew cask install gotop && brew cask install 1password && brew install koekeishiya/formulae/skhd
+9989  brew install koekeishiya/formulae/skhd
+10558* brew install cowsay

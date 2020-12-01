@@ -1,0 +1,97 @@
+### working Space ###
+
+='toms_stress_2019-Dec-11'!$A$1:$A$31,'toms_stress_2019-Dec-11'!$D$1:$D$31,'toms_stress_2019-Dec-11'!$F$1:$F$31
+='toms_stress_2019-Dec-11'!$D$1
+='toms_stress_2019-Dec-11'!$D$2:$D$31
+='toms_stress_2019-Dec-11'!$A$2:$A$31
+
+###  Certificate issue ### 
+
+- Downloaded DigiCert Global Root CA from https://www.digicert.com/digicert-root-certificates.htm
+    - Can also download locally via
+    openssl s_client -showcerts -connect trace-api.eu.newrelic.com:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >/usr/local/kong/ssl/truststore.pem
+- Converted to PEM via assistance from https://community.arubanetworks.com/t5/Controller-Based-WLANs/How-do-I-find-out-if-my-X-509-certificate-is-in-PEM-DER-or/ta-p/177996
+    openssl x509 -in DigiCertGlobalRootCA.crt -inform DER -text
+- copy out the -----BEGIN CERTIFICATE----- block to -----END CERTIFICATE----- as a .pem file 
+
+/usr/local/kong/ssl/catrust.pem
+
+curl -X PATCH localhost:8001/plugins/31df19a1-08e4-4a95-8b32-a3c4b34672c4 \
+ -d "config.sample_ratio=0.01"
+
+curl -X POST -H "Content-Type: application/json" -d @/tmp/nr.json http://localhost:8001/ca_certificates
+
+curl -X POST http://localhost:8001/ca_certificates \
+    -H 'Content-Type: application/json' \
+    -d { "cert":"-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\nd3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\nQTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT\nMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\nb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG\n9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB\nCSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97\nnh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt\n43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P\nT19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4\ngdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO\nBgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR\nTLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw\nDQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr\nhMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg\n06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF\nPnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls\nYSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\nCAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\n-----END CERTIFICATE-----" "key":"" }
+
+
+curl -X POST http://localhost:8001/plugins \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "name=zipkin" \
+  --data-urlencode "config.http_endpoint=https://trace-api.eu.newrelic.com/trace/v1?Api-Key=DkdVpxc90ggQyYX6-y8Df_XwatDXEVdi&Data-Format=zipkin&Data-Format-Version=2"  \
+  -d "config.sample_ratio=0.001" 
+
+
+
+### solid notes ### 
+
+# configure as a global plugin the Zipkin plugin w/ endpoint
+# working!
+curl -X POST http://localhost:8001/plugins \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "name=zipkin" \
+  --data-urlencode "config.http_endpoint=https://trace-api.eu.newrelic.com/trace/v1?Api-Key=DkdVpxc90ggQyYX6-y8Df_XwatDXEVdi&Data-Format=zipkin&Data-Format-Version=2"  \
+  -d "config.sample_ratio=0.001" 
+
+#dogstatsd plugin command
+curl -X POST http://localhost:8001/plugins \
+    --data "name=datadog"  \
+    --data "config.host=dogstatsd.default.svc" \
+    --data "config.port=8125"
+
+# delete plugin with ID in URI
+curl -X DELETE http://localhost:8001/plugins/4d2fa44b-62b7-4f92-84fc-52f638b12ea0/
+
+# Test of route
+curl -i -X GET \
+   --url http://localhost:8000/testorder-latest \
+   --header 'name: zipkin'
+
+# inject 2 synthetic spans into New Relic
+curl -i -H 'Content-Type: application/json' \
+ -H 'Api-Key: DkdVpxc90ggQyYX6-y8Df_XwatDXEVdi' \
+ -H 'Data-Format: zipkin' \
+ -H 'Data-Format-Version: 2' \
+ -X POST \
+ -d '[
+         {
+             "traceId": "test-zipkin-trace-id-1",
+             "id": "3e0f5885710776cd",
+             "kind": "CLIENT",
+             "name": "post",
+             "duration": 508068,
+             "localEndpoint": {
+                 "serviceName": "service-1",
+                 "ipv4": "127.0.0.1",
+                 "port": 8080
+             },
+             "tags": {
+             }
+         },
+         {
+             "traceId": "test-zipkin-trace-id-1",
+             "parentId": "3e0f5885710776cd",
+             "id": "asdf9asdn123lkasdf",
+             "kind": "CLIENT",
+             "name": "service 2 span",
+             "duration": 2019,
+             "localEndpoint": {
+                 "serviceName": "service-2",
+                 "ipv4": "127.0.0.1",
+                 "port": 8080
+             },
+             "tags": {
+             }
+         }
+     ]' 'https://trace-api.eu.newrelic.com/trace/v1'

@@ -1,0 +1,19 @@
+https://ocp.6623-7082ab.cor00005.cna.ukcloud.com:8443/console/project/int/edit/pipelines/ansible-deploy (edited) 
+
+advanced options
+change branch from master to yours :slightly_smiling_face:
+then run apply
+if all is gravy, update the PR and I shall merge :slightly_smiling_face:
+Code looks good
+
+
+
+Dockerize Cachet
+    img:cs-prod-tools-artifactory-01.ngis.zone:5001/ngis-infra/cachet/cachethq_docker
+Dockerize Postgres
+    img:postgres
+    Configure DB and align with the Cachet config
+Create Deplpoymentconfig for both Containers
+    Environment Vars for DB
+Create Service 
+Create Route

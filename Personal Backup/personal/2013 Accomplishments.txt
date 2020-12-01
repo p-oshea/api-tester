@@ -1,0 +1,42 @@
+- Added 2 CAS' to production and 2 to Stage environments for TBTF effort
+- replaced DMZ dynatrace hosts with physical hosts capable of supporting numerous DT server instances. assisted with migrations to new environments
+- key in upgrading dynaTrace from 4.2 to 5.0, from 5.0 to 5.5
+- expanded dynaTrace collector environment on AMD hosts
+- added BSM/Portal/CSS/GRUM hosts and migrated functions to them
+- migrated 30+ databases from SQL2005 to SQL2008
+- upgraded DCRUM from 11.7 to 12.0, then to 12.1
+- upgraded servervantage/vantageview from 11.1 12.0
+- retired VantageAnalyzer
+- numerous passthroughs of self-monitoring reviews, corrections, enhancements and improvements
+- Added 3 new TBTF AMDs - through many trials and tribulations
+- Lifecycled 3 CAS and 1 ADS in Prod and Stage to new devices
+- Lifecycled 6 AMDs to new devices
+- Reworked QIP import script
+- Trained in Travis Booth
+- Tricare completion work
+- infrastructure documentation improvements and enhancements
+- various firewall work, storage and other operational enhancements
+- reworked DCRUM licensing to improve ease of deploying new license revisions
+- ran multiple betas and provided feedback to Compuware. 
+- improved work intake process, improved relations with Gigamon team and worked to get a weekly meeting with them to improve turnaround time. enhanced ITG process between our two teams to provide quicker turnaround.
+-	16 servers retired, with 2 more to be done next year (the DMZ, so 18 total)
+-	30+ servers stood up (including replacements for the aforementioned)
+- 	Tricare – 16 server adds, 4 Products in Prod/Hot-Prod environments
+
+
+
+act ethically		5
+focus on customers	5
+act as a team player	4
+communicate effectively	4
+support change & innov	5
+make fact based decisi	5
+deliver quality results	5
+
+- I have a strong sense of ethics and do not act against or compromise them. 
+- I am customer focused, always, and strive to provide the best experience for the customer. When faced with solving problems, I always think of the problem from our desired way, then flip it around and think of how the customer will see things and tune to make the best experience for the customer.
+- I work well on the team, though I am opinionated and often disagree. I could use some work on better inter-personal communications and conflict resolution on staff meetings/etc with my peers.
+- I communicate well - when I do. I believe that I can better communicate with our team, our larger (Wayne's) team, and our customer base when I have made enhancements or have accomplished things. Perhaps in fear of seeming boastful and "tooting one's horn", I keep too many things to myself and should communicate more often, and more concisely.  That all said, I Feel that I communicate very well.
+- I support all of the wild changes and challenges that come our way, of which there are many. Tricare, new processes in server builds, M&As, my manager being out of pocket for nearly 1/4 of the year on other assignments, and other examples. I provided creative and solid solutions to our infrastructure needs and growth.
+- I believe myself to always try and make fact-based decisions, though I do a lot of talking and thinking to get to the proper conclusion. I like to think through all of the options, choices, and considerations, and to also bounce ideas off of other people. I believe that in the end, I come to the right decision and make choices on data and facts.
+- I believe I produce great results, exceeding expectations. our infrastructure is robust, large, and stable. we are able to grow rapidly and maintain our size without any major flaws.
