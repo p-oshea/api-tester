@@ -1,4 +1,4 @@
-# bookdata-api
+# api-tester
 
 This is my take on repurposing this for light load tests and pod-to-pod testing in OpenShift/Kubernetes.  This is a demo application showing how to build rest api using golang.
 
